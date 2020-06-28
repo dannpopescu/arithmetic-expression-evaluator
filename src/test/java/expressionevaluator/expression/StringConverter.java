@@ -7,6 +7,6 @@ import org.junit.jupiter.params.converter.ArgumentConverter;
 
 class StringConverter implements ArgumentConverter {
     public Object convert(Object var1, ParameterContext var2) throws ArgumentConversionException {
-        return Tokenizer.getInstance().tokenize((String) var1);
+        return Tokenizer.tokenize((String) var1);
     }
 }

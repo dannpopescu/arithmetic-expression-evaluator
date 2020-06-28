@@ -11,7 +11,7 @@ public class Expression {
     private List<Token> postfixForm;
 
     public Expression(String expression) {
-        this.infixForm = Tokenizer.getInstance().tokenize(expression);
+        this.infixForm = Tokenizer.tokenize(expression);
     }
 
     private void generatePostfixForm() {

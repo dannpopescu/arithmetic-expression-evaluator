@@ -2,22 +2,17 @@ package expressionevaluator.tokens;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public final class Tokenizer {
 
-    private static Tokenizer instance;
+    private static final Set<Character> validCharacters =
+            Set.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '^', '(', ')', ' ');
 
     private Tokenizer() {
     }
 
-    public static Tokenizer getInstance() {
-        if (Tokenizer.instance == null) {
-            Tokenizer.instance = new Tokenizer();
-        }
-        return Tokenizer.instance;
-    }
-
-    public List<Token> tokenize(String string) {
+    public static List<Token> tokenize(String string) {
         List<Token> tokens = new ArrayList<>();
         StringBuilder digitsAccumulator = new StringBuilder();
 
@@ -48,5 +43,14 @@ public final class Tokenizer {
         }
 
         return tokens;
+    }
+
+    public static boolean isValidExpression(String expression) {
+        for (char c : expression.toCharArray()) {
+            if (!validCharacters.contains(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
