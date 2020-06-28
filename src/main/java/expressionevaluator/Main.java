@@ -3,15 +3,38 @@ package expressionevaluator;
 import expressionevaluator.expression.Expression;
 import expressionevaluator.tokens.Tokenizer;
 
+import java.util.Scanner;
+
 public class Main {
 
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Tokenizer tok = Tokenizer.getInstance();
-        System.out.println(tok.tokenize("1120 +30+ 02/5559^ 901"));
-        System.out.println(tok.tokenize("1120 +30+ 02/5559^ 901"));
-        Expression exp = new Expression("3+(2+1)*2^3^2-8/(5-1*2/2)");
-        System.out.println(exp.toString());
-        System.out.println(exp.toPostfixString());
-        System.out.println(exp.evaluate());
+        System.out.println("---Arithmetical Expression Evaluator---");
+        System.out.println("Please enter an expression or 'q' to quit:");
+
+        String input;
+        while (true) {
+            System.out.print(">>> ");
+            input = scanner.nextLine();
+            if (input.equals("q")) {
+                System.out.println("Good bye...");
+                break;
+            }
+
+            if (!Tokenizer.isValidExpression(input)) {
+                System.out.println("Invalid expression. Please try again.");
+                continue;
+            }
+
+            Expression expression = new Expression(input);
+            double result = expression.evaluate();
+            if (result == Double.POSITIVE_INFINITY) {
+                System.out.println("Division by zero. Please try again.");
+            } else {
+                System.out.println("Result: " + expression.evaluate());
+            }
+        }
     }
+
 }
