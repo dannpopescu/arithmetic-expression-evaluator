@@ -22,7 +22,7 @@ public class Main {
                 break;
             }
 
-            if (!Tokenizer.isValidExpression(input)) {
+            if (!Tokenizer.isValidArithmeticExpression(input)) {
                 System.out.println("Invalid expression. Please try again.");
                 continue;
             }

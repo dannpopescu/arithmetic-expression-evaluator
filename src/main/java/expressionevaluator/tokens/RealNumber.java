@@ -2,6 +2,9 @@ package expressionevaluator.tokens;
 
 import java.util.Objects;
 
+/**
+ * Represents a mathematical real number.
+ */
 public class RealNumber implements Token {
 
     private final double value;
@@ -16,6 +19,11 @@ public class RealNumber implements Token {
         this.value = Double.parseDouble(value);
     }
 
+    /**
+     * Returns the value of this real number.
+     *
+     * @return the value of this real number
+     */
     public double getValue() {
         return value;
     }

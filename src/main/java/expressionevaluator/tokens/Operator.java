@@ -2,6 +2,9 @@ package expressionevaluator.tokens;
 
 import java.util.Set;
 
+/**
+ * Represents a mathematical operator.
+ */
 public enum Operator implements Token {
     ADD('+', 11, Operator.LEFT_ASSOCIATIVITY),
     SUB('-', 11, Operator.LEFT_ASSOCIATIVITY),
@@ -23,10 +26,25 @@ public enum Operator implements Token {
         this.associativity = associativity;
     }
 
+    /**
+     * Checks if the specified char is a valid mathematical operator.
+     *
+     * @param character a character to checked
+     * @return true if the specified char is a valid mathematical operator
+     */
     public static boolean isOperator(char character) {
         return Operator.OPERATORS_NOTATIONS.contains(character);
     }
 
+    /**
+     * Returns the Operator instance that corresponds to the specified character,
+     * that should be the notation of a valid mathematical operator.
+     *
+     * @param operatorChar the char notation of a valid mathematical operator
+     * @return the Operator instance that corresponds to the specified character
+     * @throws IllegalArgumentException if the specified operatorChar is not the
+     *         notation of a valid mathematical operator
+     */
     public static Operator getInstance(char operatorChar) {
         switch (operatorChar) {
             case '+': return Operator.ADD;
@@ -39,25 +57,56 @@ public enum Operator implements Token {
         }
     }
 
+    /**
+     * Returns true if this operator has a lower precedence than the specified operator.
+     *
+     * @param operator the operator whose precedence to compare with the precedence of this instance
+     * @return true if this operator has a lower precedence than the one passed as the parameter
+     */
     public boolean hasLowerPrecedence(Operator operator) {
         return this.precedence < operator.precedence;
     }
 
+    /**
+     * Returns true if this operator has equal precedence with that of the specified operator.
+     *
+     * @param operator the operator whose precedence to compare with the precedence of this instance
+     * @return true if this operator has equal precedence with that of the specified operator
+     */
     public boolean hasEqualPrecedence(Operator operator) {
         return this.precedence == operator.precedence;
     }
 
+    /**
+     * Returns true if this operator has left associativity.
+     *
+     * @return true if this operator has left associativity.
+     */
     public boolean hasLeftAssociativity() {
         return this.associativity == Operator.LEFT_ASSOCIATIVITY;
     }
 
-    public RealNumber execute(RealNumber n1, RealNumber n2) {
+    /**
+     * Returns the result of executing the operation denoted by this operator
+     * on the operands passed as parameters.
+     *
+     * @param operand1 the first operand
+     * @param operand2 the second operand
+     * @return the result of executing the operation denoted by this operator
+     *         on the operands
+     * @throws ArithmeticException if dividing by zero
+     */
+    public RealNumber execute(RealNumber operand1, RealNumber operand2) {
         switch (this) {
-            case ADD: return new RealNumber(n1.getValue() + n2.getValue());
-            case SUB: return new RealNumber(n1.getValue() - n2.getValue());
-            case MUL: return new RealNumber(n1.getValue() * n2.getValue());
-            case DIV: return new RealNumber(n1.getValue() / n2.getValue());
-            case POW: return new RealNumber(Math.pow(n1.getValue(), n2.getValue()));
+            case ADD: return new RealNumber(operand1.getValue() + operand2.getValue());
+            case SUB: return new RealNumber(operand1.getValue() - operand2.getValue());
+            case MUL: return new RealNumber(operand1.getValue() * operand2.getValue());
+            case DIV:
+                if (Double.compare(operand2.getValue(), 0) == 0) {
+                    throw new ArithmeticException("Division by zero.");
+                }
+                return new RealNumber(operand1.getValue() / operand2.getValue());
+            case POW: return new RealNumber(Math.pow(operand1.getValue(), operand2.getValue()));
             default:
                 throw new IllegalStateException("New operators we're added to the Operator enum.");
         }
