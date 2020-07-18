@@ -96,17 +96,17 @@ public enum Operator implements Token {
      *         on the operands
      * @throws ArithmeticException if dividing by zero
      */
-    public RealNumber execute(RealNumber operand1, RealNumber operand2) {
+    public Operand execute(Operand operand1, Operand operand2) {
         switch (this) {
-            case ADD: return new RealNumber(operand1.getValue() + operand2.getValue());
-            case SUB: return new RealNumber(operand1.getValue() - operand2.getValue());
-            case MUL: return new RealNumber(operand1.getValue() * operand2.getValue());
+            case ADD: return new Operand(operand1.getValue() + operand2.getValue());
+            case SUB: return new Operand(operand1.getValue() - operand2.getValue());
+            case MUL: return new Operand(operand1.getValue() * operand2.getValue());
             case DIV:
                 if (Double.compare(operand2.getValue(), 0) == 0) {
                     throw new ArithmeticException("Division by zero.");
                 }
-                return new RealNumber(operand1.getValue() / operand2.getValue());
-            case POW: return new RealNumber(Math.pow(operand1.getValue(), operand2.getValue()));
+                return new Operand(operand1.getValue() / operand2.getValue());
+            case POW: return new Operand(Math.pow(operand1.getValue(), operand2.getValue()));
             default:
                 throw new IllegalStateException("New operators we're added to the Operator enum.");
         }

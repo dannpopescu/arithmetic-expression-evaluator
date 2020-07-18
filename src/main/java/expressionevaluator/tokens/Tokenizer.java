@@ -37,7 +37,7 @@ public final class Tokenizer {
             }
 
             if (digitsAccumulator.length() > 0) {
-                tokens.add(new RealNumber(digitsAccumulator.toString()));
+                tokens.add(new Operand(digitsAccumulator.toString()));
                 digitsAccumulator.setLength(0);
             }
 
@@ -53,7 +53,7 @@ public final class Tokenizer {
         }
 
         if (digitsAccumulator.length() > 0) {
-            tokens.add(new RealNumber(digitsAccumulator.toString()));
+            tokens.add(new Operand(digitsAccumulator.toString()));
         }
 
         return tokens;

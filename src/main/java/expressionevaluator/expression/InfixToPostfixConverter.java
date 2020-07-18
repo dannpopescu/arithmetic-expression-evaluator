@@ -1,6 +1,6 @@
 package expressionevaluator.expression;
 
-import expressionevaluator.tokens.RealNumber;
+import expressionevaluator.tokens.Operand;
 import expressionevaluator.tokens.Operator;
 import expressionevaluator.tokens.Parenthesis;
 import expressionevaluator.tokens.Token;
@@ -34,7 +34,7 @@ class InfixToPostfixConverter {
      */
     public List<Token> convert(List<Token> infixTokens) {
         for (Token token : infixTokens) {
-            if (token instanceof RealNumber) {
+            if (token instanceof Operand) {
                 this.postfixTokens.add(token);
             } else if (token instanceof Operator) {
                 movePreviousOperatorsFromStackToPostfix((Operator) token);

@@ -5,17 +5,17 @@ import java.util.Objects;
 /**
  * Represents a mathematical real number.
  */
-public class RealNumber implements Token {
+public class Operand implements Token {
 
     private final double value;
 
     private static final double EPSILON = 0.00001;
 
-    public RealNumber(double value) {
+    public Operand(double value) {
         this.value = value;
     }
 
-    public RealNumber(String value) {
+    public Operand(String value) {
         this.value = Double.parseDouble(value);
     }
 
@@ -32,7 +32,7 @@ public class RealNumber implements Token {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RealNumber that = (RealNumber) o;
+        Operand that = (Operand) o;
         return Double.compare(that.value, value) == 0;
     }
 
