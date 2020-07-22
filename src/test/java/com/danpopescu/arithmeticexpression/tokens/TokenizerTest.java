@@ -1,4 +1,4 @@
-package expressionevaluator.tokens;
+package com.danpopescu.arithmeticexpression.tokens;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

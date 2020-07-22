@@ -1,4 +1,4 @@
-package expressionevaluator.tokens;
+package com.danpopescu.arithmeticexpression.tokens;
 
 /**
  * Represents a token of a mathematical expression: operator, operand,

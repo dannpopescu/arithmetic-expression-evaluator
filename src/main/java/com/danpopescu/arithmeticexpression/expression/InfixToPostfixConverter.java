@@ -1,9 +1,9 @@
-package expressionevaluator.expression;
+package com.danpopescu.arithmeticexpression.expression;
 
-import expressionevaluator.tokens.Operand;
-import expressionevaluator.tokens.Operator;
-import expressionevaluator.tokens.Parenthesis;
-import expressionevaluator.tokens.Token;
+import com.danpopescu.arithmeticexpression.tokens.Operand;
+import com.danpopescu.arithmeticexpression.tokens.Operator;
+import com.danpopescu.arithmeticexpression.tokens.Parenthesis;
+import com.danpopescu.arithmeticexpression.tokens.Token;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

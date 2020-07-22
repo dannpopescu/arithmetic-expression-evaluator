@@ -1,6 +1,6 @@
-package expressionevaluator.expression;
+package com.danpopescu.arithmeticexpression.expression;
 
-import expressionevaluator.tokens.Token;
+import com.danpopescu.arithmeticexpression.tokens.Token;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

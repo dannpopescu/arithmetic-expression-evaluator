@@ -1,6 +1,6 @@
-package expressionevaluator.expression;
+package com.danpopescu.arithmeticexpression.expression;
 
-import expressionevaluator.tokens.*;
+import com.danpopescu.arithmeticexpression.tokens.*;
 
 import java.util.Collections;
 import java.util.List;

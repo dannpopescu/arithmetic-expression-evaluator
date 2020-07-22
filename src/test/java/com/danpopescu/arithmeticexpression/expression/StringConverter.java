@@ -1,6 +1,6 @@
-package expressionevaluator.expression;
+package com.danpopescu.arithmeticexpression.expression;
 
-import expressionevaluator.tokens.Tokenizer;
+import com.danpopescu.arithmeticexpression.tokens.Tokenizer;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.ArgumentConverter;

@@ -1,4 +1,4 @@
-package expressionevaluator.expression;
+package com.danpopescu.arithmeticexpression.expression;
 
 import org.junit.jupiter.params.converter.ConvertWith;
 

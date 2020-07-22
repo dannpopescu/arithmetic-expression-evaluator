@@ -1,4 +1,4 @@
-package expressionevaluator.tokens;
+package com.danpopescu.arithmeticexpression.tokens;
 
 /**
  * Represents a left or right parenthesis.

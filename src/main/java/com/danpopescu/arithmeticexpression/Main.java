@@ -1,7 +1,7 @@
-package expressionevaluator;
+package com.danpopescu.arithmeticexpression;
 
-import expressionevaluator.expression.Expression;
-import expressionevaluator.tokens.Tokenizer;
+import com.danpopescu.arithmeticexpression.expression.Expression;
+import com.danpopescu.arithmeticexpression.tokens.Tokenizer;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package expressionevaluator.tokens;
+package com.danpopescu.arithmeticexpression.tokens;
 
 import java.util.Objects;
 
