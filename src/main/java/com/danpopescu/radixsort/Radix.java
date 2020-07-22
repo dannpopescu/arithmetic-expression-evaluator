@@ -1,4 +1,4 @@
-package radixsort;
+package com.danpopescu.radixsort;
 
 import java.util.*;
 
@@ -8,9 +8,10 @@ public class Radix {
         System.out.println(sort(List.of(1000, 4, 25, 319, 88, 51, 3430, 8471, 701, 1, 2989, 657, 713)));
     }
 
+    @SuppressWarnings("unchecked")
     public static List<Integer> sort(Collection<Integer> numbers) {
         Queue<Integer> sortedNumbers = new ArrayDeque<>(numbers);
-        Queue<Integer>[] queues = new Queue[10];
+        Queue<Integer>[] queues = (Queue<Integer>[]) new Queue[10];
         for (int i = 0; i < 10; i++) {
             queues[i] = new ArrayDeque<>();
         }
