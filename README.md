@@ -10,7 +10,7 @@ campurile/metodele acestora.*
 printr-un String care reprezinta o expresie matematica in forma normala. Evaluarea expresiei se poate realiza prin 
 apelarea metodei respective.
 
-![Expression](images/expression.png#center)
+![Expression](images/expression.png)
 
 ## Funtionalitate interna
 
@@ -19,7 +19,7 @@ apelarea metodei respective.
 In momentul instantierei clasei `Expression`, expresia matematica in format String este validata si tokenizata, ceea
 ce faciliteaza procesarea ulterioara a acesteia.
 
-![Tokenizing](images/tokenizer.png#center)
+![Tokenizing](images/tokenizer.png)
 
 `Token` este o interfata implementata de `Operand`, `Operator` si `Parenthesis`.
 
@@ -37,16 +37,3 @@ postfixata. Conversia este realizata folosind un algoritm celebru: algoritmul Sh
 Folosind lista de `Token` in forma postfixata, expresia este evaluata folosind o stiva de operanzi.
 
 ![Evaluator](images/evaluator.png)
-
-<style type="text/css" rel="stylesheet">
-img[src*='#left'] {
-    float: left;
-}
-img[src*='#right'] {
-    float: right;
-}
-img[src*='#center'] {
-    display: block;
-    margin: auto;
-}
-</style>
